@@ -3,22 +3,9 @@
 <script lang="ts">
 export default {
   data() {
-    //  The object returned by data function becomes the part of
-    //  Vue reactivity system. It will be available as this.counter
-    //  once the component instance springs up
     return {
-      counter: 0,
+      message: 'Good day!',
     };
-  },
-  methods: {
-    increment() {
-      //  changes the counter in the reactivity system
-      ++this.counter;
-    },
-    decrement() {
-      //  changes the counter in the reactivity system
-      --this.counter;
-    },
   },
 };
 </script>
@@ -28,12 +15,10 @@ export default {
     <h2>Vue 3 Learning</h2>
     <hr />
 
-    <!-- This binding gets evaluated when the 
-    counter changes in the reactivity system -->
-    <h3 class="mb-3">Counter: {{ counter }}</h3>
+    <p>Message: {{ message }}</p>
 
-    <button class="btn btn-primary me-4" @click="increment">Increment</button>
-    <button class="btn btn-danger" @click="decrement">Decrement</button>
+    <!-- v-model can only be applied to input, select, and textarea elements -->
+    <input type="text" class="form-control" v-model="message" />
   </div>
 </template>
 
