@@ -4,7 +4,7 @@
 export default {
   data() {
     return {
-      isSelected: true,
+      score: 5,
     };
   },
 };
@@ -14,11 +14,28 @@ export default {
   <div class="p-5">
     <h2>Vue 3 Learning</h2>
     <hr />
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" v-model="isSelected" />
-    </div>
-    <p v-if="isSelected">Checkbox is checked</p>
-    <p v-else>Checkbox is unchecked</p>
+    <p class="fw-bold" v-if="score >= 4">Good</p>
+    <p class="fw-bold" v-else-if="score >= 2">Average</p>
+    <p class="fw-bold" v-else>Poor</p>
+    <!-- First v-else-if must follow v-if
+    multiple v-else-if are allowed
+    no intervening elements are allowed
+    v-else-if alone is not allowed
+    v-else-if is optional
+    v-else-if takes the predicate value
+    v-else is optional -->
+
+    <select
+      class="form-select mt-4"
+      aria-label="Default select example"
+      v-model="score"
+    >
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+    </select>
 
     <!-- v-else is optional
     there should not be any intervening elements between v-if and v-else
