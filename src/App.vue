@@ -4,15 +4,8 @@
 export default {
   data() {
     return {
-      message: 'Greetings!',
-      year: 2023,
       isRegistered: true,
     };
-  },
-  methods: {
-    getRandomNumber() {
-      return Math.random();
-    },
   },
 };
 </script>
@@ -21,9 +14,9 @@ export default {
   <div class="p-5">
     <h2>Vue 3 Learning</h2>
     <hr />
-    <p>Message: {{ message }}</p>
-    <p>Year: {{ year }}</p>
-    <p>Random Number: {{ getRandomNumber() }}</p>
+    <!-- Only expressions are allowed. Statements, such as assignment, 
+    branching, etc are not allowed in templates. -->
+    <p>{{ isRegistered ? 'Registered' : 'Not Registered' }}</p>
   </div>
 </template>
 
