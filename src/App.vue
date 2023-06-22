@@ -2,9 +2,22 @@
   For this demo, I am turning it off till I specifically take it. -->
 <script lang="ts">
 export default {
+  data() {
+    //  The object returned by data function becomes the part of
+    //  Vue reactivity system. It will be available as this.counter
+    //  once the component instance springs up
+    return {
+      counter: 0,
+    };
+  },
   methods: {
-    handleClick(e: MouseEvent) {
-      console.log('Clicked', e);
+    increment() {
+      //  changes the counter in the reactivity system
+      ++this.counter;
+    },
+    decrement() {
+      //  changes the counter in the reactivity system
+      --this.counter;
     },
   },
 };
@@ -14,11 +27,13 @@ export default {
   <div class="p-5">
     <h2>Vue 3 Learning</h2>
     <hr />
-    <!-- @click is a shorthand for v-on:click
-    assign the handler reference, do not call the handler
-    accepting the event args in the handler is optional
-    use type-safe programming in Vue 3 -->
-    <button class="btn btn-primary" @click="handleClick">Click Here</button>
+
+    <!-- This binding gets evaluated when the 
+    counter changes in the reactivity system -->
+    <h3 class="mb-3">Counter: {{ counter }}</h3>
+
+    <button class="btn btn-primary me-4" @click="increment">Increment</button>
+    <button class="btn btn-danger" @click="decrement">Decrement</button>
   </div>
 </template>
 
