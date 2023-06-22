@@ -17,14 +17,12 @@ export default {
     <div class="form-check">
       <input class="form-check-input" type="checkbox" v-model="isSelected" />
     </div>
-    <p v-if="isSelected">Checkbox is checked</p>
-    <p v-else>Checkbox is unchecked</p>
+    <p v-show="isSelected">Checkbox is checked</p>
 
-    <!-- v-else is optional
-    there should not be any intervening elements between v-if and v-else
-    if there are multiple v-if, v-else is applicable to the one that is adjacent
-    multiple v-else are not allowed
-    v-else doesn't take any value -->
+    <!-- v-show sets the display property to none if the predicate is false
+    no v-else-if or v-else is allowed
+    with large set of elements conditional rendering, where predicate 
+    conditions are ephemeral, this can be an optimizing technique -->
   </div>
 </template>
 
