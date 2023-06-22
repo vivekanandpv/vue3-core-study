@@ -2,13 +2,10 @@
   For this demo, I am turning it off till I specifically take it. -->
 <script lang="ts">
 export default {
-  data() {
-    return {
-      message: 'Good day!',
-      uniqueId: 'app-el-1',
-      fullName: 'John Doe',
-      isReadOnly: true,
-    };
+  methods: {
+    handleClick(e: MouseEvent) {
+      console.log('Clicked', e);
+    },
   },
 };
 </script>
@@ -17,15 +14,11 @@ export default {
   <div class="p-5">
     <h2>Vue 3 Learning</h2>
     <hr />
-    <p v-bind:title="message" v-bind:id="uniqueId">{{ fullName }}</p>
-    <!-- v-bind can be skipped, retaining only the colon -->
-    <p :title="message" :id="uniqueId">{{ fullName }}</p>
-    <input
-      type="text"
-      class="form-control"
-      :value="message"
-      :readonly="isReadOnly"
-    />
+    <!-- @click is a shorthand for v-on:click
+    assign the handler reference, do not call the handler
+    accepting the event args in the handler is optional
+    use type-safe programming in Vue 3 -->
+    <button class="btn btn-primary" @click="handleClick">Click Here</button>
   </div>
 </template>
 
