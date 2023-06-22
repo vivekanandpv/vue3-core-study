@@ -4,7 +4,10 @@
 export default {
   data() {
     return {
-      markup: '<p>Hello, there!</p>',
+      message: 'Good day!',
+      uniqueId: 'app-el-1',
+      fullName: 'John Doe',
+      isReadOnly: true,
     };
   },
 };
@@ -14,16 +17,15 @@ export default {
   <div class="p-5">
     <h2>Vue 3 Learning</h2>
     <hr />
-    <!-- Vue automatically sanitizes the markup -->
-    <div>This won't work: {{ markup }}</div>
-
-    <!-- 
-      v-html is a directive. 
-      Use this carefully. 
-      Sanitize user input. 
-      Vue doesn't allow duplicate directives.
-    -->
-    <div v-html="markup"></div>
+    <p v-bind:title="message" v-bind:id="uniqueId">{{ fullName }}</p>
+    <!-- v-bind can be skipped, retaining only the colon -->
+    <p :title="message" :id="uniqueId">{{ fullName }}</p>
+    <input
+      type="text"
+      class="form-control"
+      :value="message"
+      :readonly="isReadOnly"
+    />
   </div>
 </template>
 
