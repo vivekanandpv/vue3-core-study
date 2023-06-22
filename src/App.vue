@@ -9,7 +9,6 @@ export default {
         firstName: 'Michele',
         lastName: 'Thorneywork',
         email: 'mthorneywork3@fastcompany.com',
-        gender: 'Genderqueer',
         ipAddress: '61.47.243.3',
       },
     };
