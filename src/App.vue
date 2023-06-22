@@ -4,7 +4,7 @@
 export default {
   data() {
     return {
-      message: 'Good day!',
+      isSelected: true,
     };
   },
 };
@@ -14,11 +14,17 @@ export default {
   <div class="p-5">
     <h2>Vue 3 Learning</h2>
     <hr />
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" v-model="isSelected" />
+    </div>
+    <p v-if="isSelected">Checkbox is checked</p>
+    <p v-else>Checkbox is unchecked</p>
 
-    <p>Message: {{ message }}</p>
-
-    <!-- v-model can only be applied to input, select, and textarea elements -->
-    <input type="text" class="form-control" v-model="message" />
+    <!-- v-else is optional
+    there should not be any intervening elements between v-if and v-else
+    if there are multiple v-if, v-else is applicable to the one that is adjacent
+    multiple v-else are not allowed
+    v-else doesn't take any value -->
   </div>
 </template>
 
